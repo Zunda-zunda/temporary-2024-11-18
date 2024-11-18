@@ -1,3 +1,16 @@
+// HTML特殊文字をエスケープする関数
+const escapeHTML = (str) => {
+  return str.replace(/[&<>"']/g, (match) => {
+    switch (match) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#039;';
+    }
+  });
+};
+
 // ローカルストレージからTODOリストを取得する関数
 const getTodos = () => {
   const storedTodos = localStorage.getItem('todos');
